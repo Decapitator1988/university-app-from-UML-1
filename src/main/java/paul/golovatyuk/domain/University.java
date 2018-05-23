@@ -1,5 +1,6 @@
 package paul.golovatyuk.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,13 +83,15 @@ public class University {
     public void removeClass(Clazz clazz){
         clazzes.remove(clazz);
     }
+
+
     public Map <LocalDateTime, Subject> getStudentsScheduleForDay(Student student){
         Map <LocalDateTime, Subject> resultMap = new HashMap<>();
+        LocalDate today = LocalDate.now();
         for (Clazz clazz : clazzes) {
-                if (clazz.getSubject().getGroup().equals(student.getGroup())){
+                if (clazz.getSubject().getGroup().equals(student.getGroup())&&today.getDayOfYear()==clazz.getDateTime().getDayOfYear()){
                     resultMap.put(clazz.getDateTime(), clazz.getSubject());
                 }
-
         }
         return resultMap;
     }
