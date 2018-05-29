@@ -2,6 +2,7 @@ package paul.golovatyuk.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -95,4 +96,36 @@ public class University {
         }
         return resultMap;
     }
+    public Map<LocalDateTime, Subject> getTeachersScheduleForDay(Teacher teacher){
+        Map<LocalDateTime, Subject> resultMap = new HashMap<>();
+        LocalDate today = LocalDate.now();
+        for (Clazz clazz : clazzes) {
+            if (clazz.getSubject().getTeacher().equals(teacher)&&today.getDayOfYear()==clazz.getDateTime().getDayOfYear()){
+                resultMap.put(clazz.getDateTime(), clazz.getSubject());
+            }
+        }
+        return resultMap;
+    }
+
+    public List<Clazz> getStudentsScheduleForMonth(Student student){
+        Map<LocalDateTime, Subject> resultMap = new HashMap<>();
+        List<Clazz> clazzesInMonth = new ArrayList<>();
+        clazzesInMonth.addAll(clazzes);
+
+        for (Clazz clazz : clazzes) {
+            Clazz tmpClass = new Clazz();
+            tmpClass.setDateTime(clazz.getDateTime());
+            tmpClass.setSubject(clazz.getSubject());
+            while (true) {
+                tmpClass = new Clazz();
+                tmpClass.setDateTime(tmpClass.getDateTime().plusWeeks(1));
+                tmpClass.setSubject(tmpClass.getSubject());
+                clazzesInMonth.add(tmpClass);
+                if (!tmpClass.getDateTime().getMonth().equals(LocalDateTime.now().getMonth())) break;
+            }
+        }
+        return clazzesInMonth;
+    }
+
+
 }

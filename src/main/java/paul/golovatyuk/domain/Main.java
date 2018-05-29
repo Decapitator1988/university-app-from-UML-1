@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -100,55 +101,59 @@ public class Main {
 //        create classes
          //monday
         List <Clazz> clazzList = university.getClazzes();
-        Clazz firstClassOnMonday = new Clazz(literature, 2018, 5, 23, Clazz.Pairs.FIRST);
+        Clazz firstClassOnMonday = new Clazz(literature, 2018, 5, 21, Clazz.Pairs.FIRST);
         clazzList.add(firstClassOnMonday);
-        Clazz secondClassOnMonday = new Clazz(literature, 2018, 5, 23, Clazz.Pairs.SECOND);
+        Clazz secondClassOnMonday = new Clazz(literature, 2018, 5, 21, Clazz.Pairs.SECOND);
         clazzList.add(secondClassOnMonday);
-        Clazz thirdClassOnMonday = new Clazz(math, 2018, 1, 15, Clazz.Pairs.SECOND);
+        Clazz thirdClassOnMonday = new Clazz(math, 2018, 5, 21, Clazz.Pairs.SECOND);
         clazzList.add(thirdClassOnMonday);
-        Clazz fourthClassOnMonday = new Clazz(physics, 2018, 1, 15, Clazz.Pairs.FOURTH);
+        Clazz fourthClassOnMonday = new Clazz(physics, 2018, 5, 21, Clazz.Pairs.FOURTH);
         clazzList.add(fourthClassOnMonday);
 
         //tuesday
-        Clazz firstClassOnTuesday = new Clazz(math, 2018, 1, 16, Clazz.Pairs.FIRST);
+        Clazz firstClassOnTuesday = new Clazz(math, 2018, 5, 22, Clazz.Pairs.FIRST);
         clazzList.add(firstClassOnTuesday);
-        Clazz secondClassOnTueasday = new Clazz(literature, 2018, 1, 16, Clazz.Pairs.SECOND);
+        Clazz secondClassOnTueasday = new Clazz(literature, 2018, 5, 22, Clazz.Pairs.SECOND);
         clazzList.add(secondClassOnTueasday);
-        Clazz thirdClassOnTuesday = new Clazz(physics, 2018, 1, 16, Clazz.Pairs.SECOND);
+        Clazz thirdClassOnTuesday = new Clazz(physics, 2018, 5, 22, Clazz.Pairs.SECOND);
         clazzList.add(thirdClassOnTuesday);
-        Clazz fourthClassOnTueasday = new Clazz(physics, 2018, 1, 16, Clazz.Pairs.FOURTH);
+        Clazz fourthClassOnTueasday = new Clazz(physics, 2018, 5, 22, Clazz.Pairs.FOURTH);
         clazzList.add(fourthClassOnTueasday);
 
         // wednesday
-        Clazz firstClassOnWednesday = new Clazz(jurisprudence, 2018, 1, 17, Clazz.Pairs.FIRST);
+        Clazz firstClassOnWednesday = new Clazz(jurisprudence, 2018, 5, 23, Clazz.Pairs.FIRST);
         clazzList.add(firstClassOnWednesday);
-        Clazz secondClassOnWednesday = new Clazz(jurisprudence, 2018, 1, 17, Clazz.Pairs.SECOND);
+        Clazz secondClassOnWednesday = new Clazz(jurisprudence, 2018, 5, 23, Clazz.Pairs.SECOND);
         clazzList.add(secondClassOnWednesday);
-        Clazz thirdClassOnWednesday = new Clazz(music, 2018, 1, 17, Clazz.Pairs.THIRD);
+        Clazz thirdClassOnWednesday = new Clazz(music, 2018, 1, 5, Clazz.Pairs.THIRD);
         clazzList.add(thirdClassOnWednesday);
-        Clazz fourthClassOnWednesday = new Clazz(math, 2018, 1, 17, Clazz.Pairs.FOURTH);
+        Clazz fourthClassOnWednesday = new Clazz(math, 2018, 1, 5, Clazz.Pairs.FOURTH);
         clazzList.add(fourthClassOnWednesday);
 
         //thursday
-        Clazz firstClassOnThursday = new Clazz(math, 2018, 1, 18, Clazz.Pairs.FIRST);
+        Clazz firstClassOnThursday = new Clazz(math, 2018, 5, 24, Clazz.Pairs.FIRST);
         clazzList.add(firstClassOnThursday);
-        Clazz secondClassOnThursday = new Clazz(math, 2018, 1, 18, Clazz.Pairs.SECOND);
+        Clazz secondClassOnThursday = new Clazz(math, 2018, 5, 24, Clazz.Pairs.SECOND);
         clazzList.add(secondClassOnThursday);
-        Clazz thirdClassOnThursday = new Clazz(music, 2018, 1, 18, Clazz.Pairs.THIRD);
+        Clazz thirdClassOnThursday = new Clazz(music, 2018, 5, 24, Clazz.Pairs.THIRD);
         clazzList.add(thirdClassOnThursday);
-        Clazz fourthClassOnSThursday = new Clazz(math, 2018, 1, 18, Clazz.Pairs.FOURTH);
+        Clazz fourthClassOnSThursday = new Clazz(math, 2018, 5, 24, Clazz.Pairs.FOURTH);
         clazzList.add(fourthClassOnSThursday);
 
 //        //friday
-        Clazz firstClassOnFriday = new Clazz(jurisprudence, 2018, 1, 19, Clazz.Pairs.FIRST);
+        Clazz firstClassOnFriday = new Clazz(jurisprudence, 2018, 5, 25, Clazz.Pairs.FIRST);
         clazzList.add(firstClassOnFriday);
-        Clazz secondClassOnFriday = new Clazz(music, 2018, 1, 19, Clazz.Pairs.SECOND);
+        Clazz secondClassOnFriday = new Clazz(music, 2018, 5, 25, Clazz.Pairs.SECOND);
         clazzList.add(secondClassOnFriday);
 
-        System.out.println(clazzList.size());
+//        System.out.println(clazzList.size());
+//
+//        System.out.println("Freddy Mercury has " + university.getStudentsScheduleForDay(freddyMercury).size()+" classes");
+//        System.out.println(university.getStudentsScheduleForDay(albertEinstein).size());
 
-        System.out.println("Freddy Mercury has " + university.getStudentsScheduleForDay(freddyMercury).size()+" classes");
-        System.out.println(university.getStudentsScheduleForDay(albertEinstein).size());
+
+//        System.out.println(university.getTeachersScheduleForDay(plato).size());
+        System.out.println(university.getStudentsScheduleForMonth(stephenKing).size());
 
 
     }

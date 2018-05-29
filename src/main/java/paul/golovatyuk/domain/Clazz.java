@@ -24,6 +24,9 @@ public class Clazz {
         }
     }
 
+    public Clazz() {
+    }
+
     public Clazz(Subject subject, int year, int month, int day, Pairs pairs) {
         this.subject = subject;
         this.dateTime = LocalDateTime.of(LocalDate.of(year, month, day), pairs.getTime());
@@ -45,6 +48,8 @@ public class Clazz {
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
+
+
 
     @Override
     public String toString() {
